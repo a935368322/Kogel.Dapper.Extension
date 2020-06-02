@@ -342,9 +342,10 @@ namespace Kogel.Dapper.Extension.Core.Interfaces
 			//表名称
 			string joinTableName = joinEntity.AsName == joinEntity.Name ? providerOption.CombineFieldName(joinEntity.Name) : joinEntity.AsName;
 			//查询的字段
-			var fieldPairs = joinAssTable.SelectFieldPairs != null && joinAssTable.SelectFieldPairs.Any() ? joinAssTable.SelectFieldPairs : joinEntity.FieldPairs;
-			foreach (string fieldValue in fieldPairs.Values)
+			var fieldPairs = joinAssTable.SelectFieldPairs != null && joinAssTable.SelectFieldPairs.Any() ? joinAssTable.SelectFieldPairs : joinEntity.FieldPairs.Select(x => new SelectField { Key = x.Key, Value = x.Value }).ToList();
+			foreach (var fieldItem in fieldPairs)
 			{
+				var fieldValue = fieldItem.Value;
 				if (masterSql.LastIndexOf(',') == masterSql.Length - 1 && sqlBuilder.Length == 0)
 					sqlBuilder.Append($"{joinTableName}.");
 				else

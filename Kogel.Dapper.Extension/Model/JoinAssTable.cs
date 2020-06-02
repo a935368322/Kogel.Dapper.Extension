@@ -30,7 +30,7 @@ namespace Kogel.Dapper.Extension.Model
 		/// <summary>
 		/// 自定义查询的字段
 		/// </summary>
-		public Dictionary<string, string> SelectFieldPairs { get; set; }
+		public List<SelectField> SelectFieldPairs { get; set; }
 
 		/// <summary>
 		/// 表首字段
@@ -83,7 +83,7 @@ namespace Kogel.Dapper.Extension.Model
 				LeftAssName = this.LeftAssName,
 				TableType = this.TableType,
 				JoinSql = this.JoinSql,
-				SelectFieldPairs = new Dictionary<string, string>(),
+				SelectFieldPairs = new List<SelectField>(),
 				MapperList = new Dictionary<string, string>(),
 				IsMapperField = false,
 				PropertyInfo = this.PropertyInfo

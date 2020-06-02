@@ -27,8 +27,8 @@ namespace Kogel.Dapper.Extension.Test
 			//});
 
 			#region mssql单元测试
-			var mssqlQuery = new UnitTest.Mssql.Query();
-			mssqlQuery.Test();
+			//var mssqlQuery = new UnitTest.Mssql.Query();
+			//mssqlQuery.Test();
 
 			//var mssqlCommand = new UnitTest.Mssql.Command();
 			//mssqlCommand.Test();
@@ -49,8 +49,8 @@ namespace Kogel.Dapper.Extension.Test
 			//stopwatch.Stop();
 
 			//#region oracle单元测试
-			//var oracleQuery = new UnitTest.Oracle.Query();
-			//oracleQuery.Test();
+			var oracleQuery = new UnitTest.Oracle.Query();
+			oracleQuery.Test();
 
 			//var oracleCommand = new UnitTest.Oracle.Command();
 			//oracleCommand.Test();

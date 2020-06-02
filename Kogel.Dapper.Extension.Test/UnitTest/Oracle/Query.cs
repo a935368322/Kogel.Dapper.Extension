@@ -38,10 +38,13 @@ namespace Kogel.Dapper.Extension.Test.UnitTest.Oracle
                 //var aaa = conn.QuerySet<Comment>()
                 //	   .Count();
                 var bbb = conn.QuerySet<Comment>()
+                    .Join<Comment, News>((a, b) => a.ArticleId == b.Id && b.Id!=0 && b.Id>0)
+                    .Where(x => x.Content.IsNotNull() && x.Content.Contains("a") )
                     .Distinct()
                     .PageList(1, 10, x => new
                     {
-                        id = 1
+                        id = 1,
+                        x.Content
                     });
 
 
